@@ -1,0 +1,15 @@
+In both A single connection is established, all requests are handelled using same connection.
+
+HTTP 1.1
+Is not a multiplex connection i.e only one connection is allowed at a time.
+Header data is repeated
+Header data is transferred RAW
+Only files requested are served
+Is slower
+
+HTTP 2.0
+Multiple requests can be handelled at the same time
+Header data is not repeated
+Header data is compressed
+At the request of a single file(e.g index.html) the server can respond with any other expected files (like css etc) automatically without the client requesting.
+Is Faster
