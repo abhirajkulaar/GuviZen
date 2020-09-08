@@ -1,0 +1,138 @@
+HTML Tags CheatSheet
+
+
+<div>Block element</div>
+sets the display style of element as block i.e all elements before or after this are pushed to the next line.
+Used as a spacer or container.
+
+
+<h1>Page title</h1>
+Bold text of size 2em with a margin
+Used as the main heading of sections.
+
+
+<h2>Subheading</h2>
+Bold text of size 1.5em with a margin
+Used as the sub heading under "h1".
+
+
+
+<h3>Tertiary heading</h3>
+Bold text of size 1.17em with a margin
+Used as the sub heading under "h1".
+
+
+<h4>Quaternary heading</h4>
+Bold text of size 1em i.e default size with a margin
+Used as the sub heading under "h1".
+
+
+
+<p style="text-align: center;">text</p>
+Style wise only difference is from div is of margins.
+Used for adding paragraphs so search engines can detect.
+
+
+
+
+
+
+<img src="/demo.jpg" alt="description" height="48" width="100" />
+Use to add images to the page
+Supported formats are jpeg, gif, png, apng, svg, bmp, bmp ico, png ico
+
+
+
+
+<a href="https://htmlg.com/" target="_blank" rel="nofollow">Click here</a>
+<a href="mailto:me@ruwix.com?Subject=Hi%20mate" target="_top">Send Mail</a>
+<a href="#footer">Jump to footnote</a>
+
+anylink tag used to create hyperlinks to other pages/send mail/section of same page
+On clicking browser will open the link mention in href in the taeget(self,new tab etc)
+Can also be used to download file
+
+
+
+Bold text
+<strong>Bold text</strong>
+used to style text as bold has no other style property
+
+
+
+Italic text
+<em>Italic text</em>
+used to style text as italic has no other style property
+
+
+
+Iframe
+<iframe src="link.html" width="200" height="200">
+</iframe> 
+Used to insert other webpages within a page. The link mentioned if dully rendered within the iframe just as it would in a seperate browser window
+
+
+
+Abbreviation
+<abbr title="Hypertext Markup Language">HTML</abbr>
+Used to insert Abbreviations
+Abbreviated words appear underlined and their full form appears when hovering over using mouse.
+
+
+Comment
+<!-- HTML
+Comment -->
+
+
+
+
+Horizontal Line
+<hr />
+Is a full horizontal line with height of 1 px.
+
+
+Line break
+<br />
+Is a full empty(horizontal) line with height of 1 text line.
+
+
+Quotation
+<q>Success is a journey not a destination.</q>
+Puts text in double quotes
+
+
+
+<blockquote cite="https://ruwix.com/">
+The Rubik's Cube is the World’s best selling puzzle toy.
+</blockquote> 
+Basically a paragraph with high margin.
+Used to mark info refrenced from external source
+
+
+
+
+
+Video
+<video width="200" height="150" controls>
+	<source src="vid.mp4" type="video/mp4">
+	<source src="vid.ogg" type="video/ogg">
+	No video support.
+</video>
+Adds a video mp4/m4a fully playable with pause play controls using player built in the browser
+
+
+
+
+
+Audio
+ <audio controls>
+    <source src="sound.ogg" type="audio/ogg">
+    <source src="sound.mp3" type="audio/mpeg">
+    No audio support.
+</audio> 
+Adds audio fully playable with pause play controls using player built in the browser
+
+
+Span
+<span style="text-decoration: underline;">Underlined text</span>
+Used to group elements while keeping the group inline.
