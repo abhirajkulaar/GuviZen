@@ -1,0 +1,5 @@
+In Browser we have access to browser and webpage objects like Window and Document(DOM) and storage like cookies etc. whereas in Node you can access system files etc.
+As JS is run in our own environment we can control the version and plugins of JavaScript rinning in node whereas in browser it depends on the client browser and config.
+In Node you can interact with other services on the system(like Databases etc) whereas that is not permitted in browser mode.
+In Node we use require instead of import in browser to include modules.
+All Code must be in modules in Node not neccessarily in browsers
