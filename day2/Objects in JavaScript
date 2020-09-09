@@ -1,0 +1,112 @@
+Recommended reading on Medium - https://medium.com/@abhirajkulaar/objects-in-javascript-edcaaa652d4
+
+
+Objects in JavaScript
+Just like Objects in any other programming language JavaScript objects are a collection of variables and functions but somewhat peculiar in usage and structure
+Abhirajkulaar
+Abhirajkulaar
+Sep 9 · 4 min read
+
+
+
+
+
+Just like objects in many other object oriented languages, objects in JavaScript are a collection of variables and functions, however a lot more flexible and forgiving than one might expect and very simplistic in their application just like JavaScript itself.
+Most OOP languages require one to create a schema for the objects a.k.a Classes to strictly control and define the memory allocations and avoid most run time errors by checking compile-time, that is not the case with JavaScript.
+No Classes?
+One can create classes in JavaScript and add member functions, variables, extend them add constructors and all you would expect. e.g
+class Car {
+constructor(brand) {
+this.carname = brand;
+}
+present() {
+return ‘I have a ‘ + this.carname;
+}
+}
+class Model extends Car {
+constructor(brand, mod) {
+super(brand);
+this.model = mod;
+}
+show() {
+return this.present() + ‘, it is a ‘ + this.model;
+}
+}
+mycar = new Model(“Ford”, “Mustang”);
+document.getElementById(“demo”).innerHTML = mycar.show();
+This is all well and good when dealing with precisely defined data where you know what’s gonna come from where and what it’s gonna look like. But JavaScript is a language for the web where you have little control over the data, so it’s prepared for just about anything you can throw at it and so are it’s objects.
+Declaring Objects
+The most common way to declare objects in JavaScript is without defining any class prior to it by using an object literal. You both define and create an object in one statement.
+An object literal is a list of name:value pairs (like age:50) inside curly braces {}.
+var person = {firstName:”John”, lastName:”Doe”, age:50, eyeColor:”blue”};
+You can have almost anything as the value, another object, any primitive type or even a function.
+function shoutOut(txt){console.log(txt)}
+var person = {firstName:”John”, lastName:”Doe”, age:50, eyeColor:”blue”,sout:shoutOut};
+person.sout(“test”)
+As you can see the schema is defined when you declare not prior to it. But actually there is no schema.
+Accessing Values
+One can access values using the dot notation used in almost all OOP langauges.
+person.firstName
+“John”
+Accessing objects within objects is similar too
+Extending/Modifying objects
+Objects can be extended very flexibly by just declaring new item within the object.
+var person = {firstName:”John”, lastName:”Doe”, age:50, eyeColor:”blue”};
+person.height=180
+person now is
+{firstName: “John”, lastName: “Doe”, age: 50, eyeColor: “blue”, height: 180}
+JavaScript Objects are Mutable
+In a web page you want all information to be consistent, one does not want different versions of the same data all over the memory creating confusion. Fact is in real world you are going to use objects to store data for the web page and if you intent to copy that over to another object, you want that data to be in-sync OR passed by reference. So, by default all objects in JavaScript are mutable. e.g
+var person = {firstName:”John”, lastName:”Doe”, age:50, eyeColor:”blue”}
+var x = person;
+x.age = 10; // This will change both x.age and person.age
+Functions on Objects
+JavaScript is not a type specific language. You can use a variable to store anything and change it to anything whenever you want. Similarly objects will also keep on changing. So any functions you want on objects need to be flexible. Defining functions on objects can be done just by passing the object to the function.
+function logName(p){console.log(p.firstName);}
+var person = {firstName:”John”, lastName:”Doe”, age:50, eyeColor:”blue”}
+logName(person);
+John
+var person = { lastName:”Doe”, age:50, eyeColor:”blue”}
+logName(person);
+undefined
+Any value missing from the object is assigned undefined and the programs runs as normal thereafter.
+Why No Schema?
+Although a more defined schema helps keep stuff organised and in control. The web simply isn’t any of these. Let’s say a webs server returns a request to the front end an object like this..
+var person = {firstName:”John”, lastName:”Doe”, age:50, eyeColor:”blue”}
+You develop your front end to handle this. But tomorrow the back end changes and now additional fields are added and the data return is this..
+var person = {firstName:”John”, lastName:”Doe”, age:50, eyeColor:”blue”,height:180}
+OR
+var person = {firstName:”John”, lastName:”Doe”, age:50, eyeColor:”blue”,
+father:{firstName:”Jack”, lastName:”Doe”, age:76, eyeColor:”blue”,height:170}
+}
+In JavaScript almost all your code will still work.
+Now, imagine handling all this in C++!!
+JSON
+As most of the web runs on JavaScript, most of data is held by JavaScript objects. That means almost all data received or sent by pages will eventually be a part of a JavaScript object. So to ease this a format for sending such data exists called JSON(Java Script object notation).
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "isAlive": true,
+  "age": 27,
+  "address": {
+    "streetAddress": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10021-3100"
+  },
+  "phoneNumbers": [
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+    {
+      "type": "office",
+      "number": "646 555-4567"
+    }
+  ],
+  "children": [],
+  "spouse": null
+}
+Almost all data on the web is sent/received using this format and JavaScript readily parses this to create corresponding objects skipping a lot of work for the developers. It is the most popular way of transporting data on the web, second to this is XML.
+Conclusion
+JavaScript is a forgiving and flexible language and so are it’s objects. But this nature is not primarily aimed to circumvent mistakes a developer makes while coding but to avoid errors running in the browser, to give the user a more usable web, not one riddled with little errors breaking websites one visits everyday.
