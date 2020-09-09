@@ -1,0 +1,10 @@
+1)Use typeof in all the datatypes and check the result
+
+typeof(1) - "number"
+typeof(1.1) - "number"
+typeof("1.1") - "string"
+typeof(true) - "boolean"
+typeof(null) - "object"
+typeof(undefined) - "undefined"
+typeof([]) - "object"
+typeof({}) - "object"
