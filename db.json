@@ -1,0 +1,36 @@
+{
+  "people":[
+    {
+      "id" : 0,
+      "name": "Abhiraj",
+      "age" : 23
+    },
+    {
+      "id" : 1,
+      "name": "Gurnam",
+      "age" : 56
+    },
+    {
+      "id" : 2,
+      "name": "Gamdoor",
+      "age" : 78
+    }
+  ],
+  "places" : [
+    {
+      "id": 0,
+      "name": "Chandigarh",
+      "type": "city"
+    },
+    {
+      "id": 1,
+      "name": "Mehna",
+      "type": "village"
+    },
+    {
+      "id": 2,
+      "name": "Malout",
+      "type": "town"
+    }
+  ]
+}
