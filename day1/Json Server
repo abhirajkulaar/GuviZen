@@ -1,0 +1,37 @@
+FAKE server hosted 
+URl - https://my-json-server.typicode.com/abhirajkulaar/GuviZen
+db.json file is saved in repo
+
+GET https://my-json-server.typicode.com/abhirajkulaar/GuviZen/people
+
+[
+    {
+        "id": 0,
+        "name": "Abhiraj",
+        "age": 23
+    },
+    {
+        "id": 1,
+        "name": "Gurnam",
+        "age": 56
+    },
+    {
+        "id": 2,
+        "name": "Gamdoor",
+        "age": 78
+    }
+]
+
+POST https://my-json-server.typicode.com/abhirajkulaar/GuviZen/people
+{
+"name":"Gursharan",
+"age":55
+
+}
+
+response--
+{
+    "name": "Gursharan",
+    "age": 55,
+    "id": 3
+}
