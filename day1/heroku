@@ -1,0 +1,14 @@
+Heroku server has ben hosted with cutom data
+
+you can access via https://herokutest782.herokuapp.com/
+
+GET https://herokutest782.herokuapp.com/people
+GET https://herokutest782.herokuapp.com/places
+
+POST https://herokutest782.herokuapp.com/people
+
+{
+"name":"Gursharan",
+"age":55
+
+}
