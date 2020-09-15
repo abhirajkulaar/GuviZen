@@ -1,0 +1,53 @@
+1. Uncaught type error - Cannot read property
+
+Cause--
+This error occurs when trying to read a property of a null/undefined object.
+e.g var abc=null;
+console.log(abc.length) will give this error
+
+Solution--
+Before reading any property check if object is null by
+if(a!=null){proceed as usual}{handle the unexpected case by continue etc.}
+
+2. TypeError: undefined is not an object
+
+Cause--
+This error occurs when trying to read an undefined property of any object
+only occurs in safari (not in chrome)
+e.g var abc.v="sample";
+console.log(abc.p) will give this error
+
+Solution--
+Before reading any property check if it is undefined by
+if(abc.a!=undefined){proceed as usual}{handle the unexpected case by continue etc.}
+
+3. TypeError: null not an object
+
+Cause--
+This error occurs when trying to read a null property of any object
+only occurs in safari (not in chrome)
+e.g var abc.v="sample";
+abc.p=null;
+console.log(abc.p) will give this error
+
+Solution--
+Before reading any property check if it is undefined by
+if(abc.p!=null){proceed as usual}{handle the unexpected case by continue etc.}
+
+4. Script Error
+Cause--
+This error occurs when you include a script from a different domain origin and there is an exception in that.
+The error is not comminicated to the main window to ensure data privacy within that script.
+
+Solution--
+set the access-control allow- origin of the response of sceript get rewauest to include the domain of source or set it to *
+then add crossorigin="anonymous" as a n attribute to the script embed in HTML
+
+5. Script Error
+Cause--
+This error occurs when you include a script from a different domain origin and there is an exception in that.
+The error is not comminicated to the main window to ensure data privacy within that script.
+
+Solution--
+set the access-control allow- origin of the response of sceript get rewauest to include the domain of source or set it to *
+then add crossorigin="anonymous" as a n attribute to the script embed in HTML
