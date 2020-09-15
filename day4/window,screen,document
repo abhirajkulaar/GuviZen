@@ -1,0 +1,25 @@
+The Window is the global object in Javascript i.e any line of code you write happend within the scope of the window.
+SO a window is basically each tab/window of the browser opened and all objects, variables and functions you declare in a window of the browser lie in the corresponding window 
+object. 
+Window Object has 2 many children 2 called Document and Screen--
+
+                        Window
+                        /    \
+                       /      \
+                      /        \
+                    Screen     Document
+                    
+Screen object contains all info regarding the display of the user, dimension sof the window,orientation etc.
+A sample screen object contains-
+screen: Screen
+availHeight: 680
+availLeft: 0
+availTop: 0
+availWidth: 1280
+colorDepth: 24
+height: 720
+orientation: ScreenOrientation {angle: 0, type: "landscape-primary", onchange: null}
+pixelDepth: 24
+width: 1280
+
+The Document object contains whatever is shown to the user/loaded to the browser i.e the HTML DOM.
