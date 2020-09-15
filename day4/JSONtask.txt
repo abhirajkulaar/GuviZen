@@ -1,0 +1,135 @@
+Problem 0 Part A
+
+var cat = {
+ name: "Fluffy",
+ activities: ["play", "eat cat food"],
+ catFriends: [
+ {
+ name: "bar",
+ activities: ["be grumpy", "eat bread omblet"],
+ weight: 8,
+ furcolor: "white"
+ }, 
+ {
+ name: "foo",
+ activities: ["sleep", "pre-sleep naps"],
+ weight: 3
+ }
+ ]
+}
+
+
+
+1. cat.height = 3
+  cat.weight = 35
+  
+2. cat.name="Fluffyy"
+
+3. cat.catFriends.forEach((ob)=>console.log(ob.activities))
+
+4. cat.catFriends.forEach((ob)=>console.log(ob.name))
+
+5. cat.catFriends.reduce(((val,ob)=>val+ob.weight),0)
+
+6. function printAct(cat){if(cat.activities!=undefined){console.log(cat.activities);if(cat.catFriends!=undefined){cat.catFriends.forEach((ob)=>printAct(ob));}}}
+  printAct(cat)
+  
+7. cat.catFriends[0].activities.push("act1")
+   cat.catFriends[1].activities.push("act2")
+   
+8.cat.catFriends[0].furcolor="yellow"
+
+
+
+Problem 0 Part B
+
+var myCar = {
+ make: 'Bugatti',
+ model: 'Bugatti La Voiture Noire',
+ year: 2019,
+ accidents: [
+ {
+ date: '3/15/2019',
+ damage_points: '5000',
+ atFaultForAccident: true
+ },
+ {
+ date: '7/4/2022',
+ damage_points: '2200',
+ atFaultForAccident: true
+ },
+ {
+ date: '6/22/2021',
+ damage_points: '7900',
+ atFaultForAccident: true
+ }
+ ]
+}
+
+1. myCar.accidents.forEach((ob)=>ob.atFaultForAccident=false)
+
+2.myCar.accidents.forEach((ob)=>console.log(ob.date))
+
+
+
+Problem 1
+
+var obj = {name : “RajiniKanth”, age : 33, hasPets : false};
+function printAllValues(obj) {
+ // your code here
+ Object.keys(obj).forEach((k1)=>{console.log(obj[k1])}) OR for(pr in obj){console.log(obj[pr]);})
+}
+
+Problem 2 
+
+function printAllKeys(obj) {
+ // your code here
+ Object.keys(obj).forEach((k1)=>{console.log(k1)})
+
+}
+
+Problem 3
+
+var obj = {name: "ISRO", age: 35, role: "Scientist"};
+function convertListToObject(obj) {
+ var list=[];
+ for(k in obj){var mlist=[];mlist.push(k);mlist.push(obj[k]);list.push(mlist);}
+ return list;
+}
+
+Problem 4
+
+var array = [“GUVI”, “I”, “am”, “Geek”];
+
+function transformFirstAndLast(arr) {
+var newObject={};
+ newObject[arr[0]]=arr[arr.length-1];
+ return newObject;
+}
+
+{GUVI: "Geek"}
+
+Problem 5
+
+var arr = [['make', 'Ford'], ['model', 'Mustang'], ['year', 1964]];
+
+function fromListToObject(arr) {
+ var newObject = {};
+ arr.forEach((itm)=>newObject[itm[0]]=itm[1])
+ return newObject;
+}
+
+Problem 6
+
+var arr= [[[“firstName”, “Vasanth”], [“lastName”, “Raja”], [“age”, 24], [“role”, “JSWizard”]], [[“firstName”, “Sri”], [“lastName”, “Devi”], [“age”, 28], [“role”, “Coder”]]];
+
+function transformEmployeeData(arr) {
+ var transformEmployeeList = [];
+ 
+ arr.forEach((list)=>{obj={};list.forEach((item)=>obj[item[0]]=item[1]);transformEmployeeList.push(obj);})
+ 
+ return transformEmployeeList;
+}
+
+Problem 7
+
