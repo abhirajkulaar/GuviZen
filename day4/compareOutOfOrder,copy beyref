@@ -1,0 +1,11 @@
+We can compare out of order objects by deep comparing i.e comparing each and every key, value pair
+e.g
+var obj1 = {"name":"GUVI","class":"FS"};
+var obj2 = {"class":"FS","name":"GUVI"};
+function compare(obj1,obj2){for(i in obj1){if(obj1[i]!=obj2[i]){return false;}}return true;}
+
+Why objects are copied by reference----
+Objects in most programming languages are by default copied by reference until and unless explicitly mentioned
+The reason for that is copyying by value means all the properties will be copied
+This might have far reaching consequences in terms of performace of the program
+So to ensure that developers are consious about it, it is explicitly required to be programmed.
