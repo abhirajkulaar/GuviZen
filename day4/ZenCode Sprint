@@ -52,4 +52,107 @@ if(lastName!=""){if(str==""){str=lastName}{str=str+" "+lastName}}return str;
 }
 
 17.
-function getLengthOfWord(word1){if(typeof)}
+function getLengthOfWord(word1){if(typeof(word1=='string')){return word1.length;}{return -1;}}
+
+18.
+function isSameLength(word1, word2){if(typeof(word1)=='string'&&typeof(word2)=='string')){return word1.length==word2.length}{return false;}}
+
+19.
+function getDistance(x1, y1, x2, y2){return Math.pow(Math.abs(x1-x2),2)+Math.pow(Math.abs(y1-y2),2)}
+
+20.
+function getNthElement(array,n){return array[n]}
+
+21.
+function getLastElement(array){if(array.length==0){return -1}return array[array.length-1]}
+
+22.
+function getProperty(obj, key) {return obj[key];}
+
+23.
+function addProperty(obj, key){obj[key]=true}
+
+24.
+function removeProperty(obj, key){delete obj[key]}
+
+25.
+var ar2 = function countPositivesSumNegatives(arr) {
+var pos=0;
+var neg=0;
+ for(var i=0;i<arr.length;i++)
+ {
+ if(arr[i]>0){pos=pos+arr[i]}else{neg=neg+arr[i]}
+ }
+ 
+ array=[pos,neg]
+ return array
+}
+
+26.
+function getPositives(ar){
+var pos=[];
+for(var i=0;i<ar.length;i++)
+{if(ar[i]>0){pos.push(ar[i]);}}
+return pos
+}
+
+27.
+function powersOfTwo(n){
+res=[];
+  for(var i=0;i<n;i++)
+  {res.push(Math.pow(2,i));}
+  return res;
+}
+
+28.
+function findMax(ar){ar.reduce((o,val)=>{if(o>val){return o}return val},ar[0])}
+
+29.
+// Function prints the first nPrimes numbers
+function printPrimes(nPrimes)
+{
+ var n = 0;
+ var i = 2;
+ 
+ while(n < nPrimes)
+ {
+ if (isPrime(i))
+ {
+ console.log(n, “ → “, i);
+ n++;
+ }
+ 
+ i++;
+ }
+}
+function isPrime(n){   for (c=2; c*c<=n; c++){
+      if ( n%c == 0 ){
+        return false;
+      }}
+      return true;
+   }
+   
+30.
+   function getPrimes(nPrimes, startAt)
+{var ar=[];
+var count=0;
+while(count<nPrimes){
+ if(isPrime(startAt)){ar.push(startAt);count++}
+startAt++;
+}
+return ar;
+}
+
+31.
+function reverseString(s){return s.split("").reverse().join("");  }
+
+32.
+function mergeArrays(ar1, ar2)
+{
+for(let el of ar1)
+{ar2.push(el);}
+ return ar2;
+}
+
+33.
+function sumCSV(s){return s.split(",").reduce((a,val)=>+val+ +a,0)}
