@@ -1,0 +1,28 @@
+Print odd numbers in an array 
+arr.forEach((ob)=>{if(ob%2==1){console.log(ob);}})
+
+Convert all the strings to title caps in a string array
+arr.map((obj)=>obj.toUpperCase())
+
+Sum of all numbers in an array
+arr.reduce((val,ob)=>ob+val,0)
+
+
+Return all the prime numbers in an array
+
+function isPrime(n){   for (c=2; c*c<=n; c++){
+      if ( n%c == 0 ){
+        return false;
+      }}
+      return true;
+   }
+   
+
+arr.filter((val)=>isPrime(val))
+
+
+
+
+Return all the palindromes in an array 
+
+arr.filter((val)=>val.split("").reverse().join("")==val)
