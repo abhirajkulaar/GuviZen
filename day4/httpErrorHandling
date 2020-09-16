@@ -1,0 +1,18 @@
+
+try{
+var request = new XMLHttpRequest()
+request.open('GET', 'https://dog.ceo/api/breeds/list/all', true)
+request.onload = function() {
+if(request.status==200){
+
+  // Begin accessing JSON data here
+var data = JSON.parse(this.response)
+console.log(data)}
+
+else{console.log("HTTP request to dogs failed:"+ this.status)}
+}
+
+// Send request
+request.send()}
+
+catch{console.log("HTTP request to dogs failed:" + error)}
