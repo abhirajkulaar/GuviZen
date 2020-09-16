@@ -1,0 +1,29 @@
+some API's need authentication to check which user is consuming the service
+one way to achieve this is via sending a unique user key in the URL
+
+By City
+
+var request = new XMLHttpRequest()
+request.open('GET', 'https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=439d4b804bc8187953eb36d2a8c26a02', true)
+request.onload = function() {
+  // Begin accessing JSON data here
+var data = JSON.parse(this.response)
+console.log(data)
+}
+
+// Send request
+request.send()
+
+
+By ID
+
+var request = new XMLHttpRequest()
+request.open('GET', 'https://samples.openweathermap.org/data/2.5/weather?id=2172797&appid=439d4b804bc8187953eb36d2a8c26a02', true)
+request.onload = function() {
+  // Begin accessing JSON data here
+var data = JSON.parse(this.response)
+console.log(data)
+}
+
+// Send request
+request.send()
