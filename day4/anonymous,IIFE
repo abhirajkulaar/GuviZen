@@ -35,7 +35,7 @@ Return median of two sorted arrays of same size
 
 Remove duplicates from an array
 
-(function(ar){var out=[];for(i in ar){if out.find((val=>val=ar[i]))==undefined{out.push(ar[i])}}})(arr)
+(function(ar){return ar.reduce(val,oj=>({if(! val.includes(oj)){val.push(oj)}}),[])})(arr)
 
 Rotate an array by k times and return the rotated array
 
