@@ -1,0 +1,42 @@
+Print odd numbers in an array 
+
+arr=[1,6,4,9,23,45,12];
+(function(ar){ar.forEach((val)=>{if(val%2==1){console.log(val);}})})(arr)
+
+
+Convert all the strings to title caps in a string array
+arr=["test","Samle","wDEf"];
+(function(ar){for(i in ar){ar[i]=ar[i].toUpperCase()}})(arr)
+
+Sum of all numbers in an array
+arr=[1,6,4,9,23,45,12];
+(function(ar){return ar.reduce((val,oj)=>val+oj,0)})(arr)
+
+Return all the prime numbers in an array
+arr=[1,6,4,9,23,45,12];
+function isPrime(n){   for (c=2; c*c<=n; c++){
+      if ( n%c == 0 ){
+        return false;
+      }}
+      return true;
+   }
+   
+
+(function (arr){return arr.filter((val)=>isPrime(val))})(arr)
+
+
+Return all the palindromes in an array
+
+(function(ar) {return arrfilter((val)=>val.split("").reverse().join("")==val)})(arr)
+
+Return median of two sorted arrays of same size 
+(function(arr1,arr2){arr3=arr1.concat(arr2);arr3.sort((a,b)=>a-b);return arr3[arr3.length/2]})(arr1,arr2)
+
+
+Remove duplicates from an array
+
+(function(ar){var out=[];for(i in ar){if out.find((val=>val=ar[i]))==undefined{out.push(ar[i])}}})(arr)
+
+Rotate an array by k times and return the rotated array
+
+(function(arr,k){var out=[];for(i in arr){out[(i+k)%arr.length]=arr[i];}return out})(arr,3)
