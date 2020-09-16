@@ -133,3 +133,35 @@ function transformEmployeeData(arr) {
 
 Problem 7
 
+var expected = {foo: 5, bar: 6};
+var actual = {foo: 5, bar: 6}
+function assertObjectsEqual(actual, expected, testName){
+if(JSON.stringify(actual)==JSON.stringify(expected)){console.log("Passed");return;}
+console.log("FAILED " + testName+" Expected "+JSON.stringify(expected)+", but got "+JSON.stringify(actual))
+
+}
+
+Problem 8
+
+var securityQuestions = [
+ {
+ question: 'What was your first pet’s name?',
+ expectedAnswer: 'FlufferNutter'
+ },
+ {
+ question: 'What was the model year of your first car?',
+ expectedAnswer: '1985'
+ },
+ {
+ question: 'What city were you born in?',
+ expectedAnswer: 'NYC'
+ }
+]
+
+function chksecurityQuestions(qa,q,a){for(i in qa){if(qa[i].question==q&&qa[i].expectedAnswer==a){return true;}}return false;}
+OR
+function chksecurityQuestions(qa,q,a){return qa.filter((obj)=>obj.question==q)[0].expectedAnswer==a}
+
+Problem 9
+
+students.filter((ob)=>ob.age<20)
