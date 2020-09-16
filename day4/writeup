@@ -1,0 +1,16 @@
+#1-The development of front end should be such that it should take into consideration all knid of errors that might expectedly or unexpectly occur
+If something can go wrong it will. Any property can come up as null or undefined so consider that.
+
+#2-Always log errors to your server to investigate and track
+#3- There is a window.onerror callback where all errors float to before coming to the user
+
+#4-Types of errors
+1.Type coercion i.e errors while typecasting leading to unexpected outcomes
+2.Data type i.e wring operation on wrong datatypes or objects
+3.Communication errors i.e invalid URL, bad connection, bad response etc.
+
+#5-you can throw your own error to be handelled by catch blocks in outside scope so our code always know what exactly hapenned and how to handle it
+
+#6-Fatal errors lead to total/major user inoperability vs non-fatal ones
+
+#7-Log errors to browser log as well and add debugger so u can check for it as a client as well
