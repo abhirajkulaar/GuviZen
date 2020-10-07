@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+
+    .calculator-main {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+    }
+
+    .calculator-screen {
+      width: 100%;
+      height: 80px;
+      border: none;
+      background-color: #252525;
+      color: #fff;
+      text-align: right;
+      padding-right: 5%;
+      
+      font-size: 4rem;
+    }
+
+    button {
+      height: 60px;
+      font-size: 2rem!important;
+    }
+
+  
+    .calculator-keys {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 20px;
+      padding: 20px;
+    }
+    </style>
+
+</head>
+<body>
+    <!--
+    <div class="calculator-main">
+
+        <input type="text" class="calculator-screen" value=""  disabled>
+    
+        <div class="calculator-keys">
+    
+          
+          
+          
+          
+    
+          <button  value="7" class="btn ">7</button>
+          <button  value="8" class="btn ">8</button>
+          <button  value="9" class="btn ">9</button>
+          <button   class="btn " value="+">+</button>
+    
+          <button  value="4" class="btn ">4</button>
+          <button  value="5" class="btn ">5</button>
+          <button  value="6" class="btn ">6</button>
+          <button  class="btn " value="-">-</button>
+    
+          <button  value="1" class="btn ">1</button>
+          <button  value="2" class="btn ">2</button>
+          <button  value="3" class="btn ">3</button>
+          <button  class="btn " value="*">*</button>
+          <button  class="btn btn-danger " value="clear">AC</button>
+          
+          <button  value="0" class="btn ">0</button>
+          <button  class="btn" value="=">=</button>
+          
+          <button  class="btn " value="/">/</button>
+          
+    
+        </div>
+      </div>
+-->
+<script>
+
+
+//Create DOM
+var keys= document.createElement("DIV")
+keys.classList.add("calculator-keys")
+
+var a=document.createElement("BUTTON");a.setAttribute("value","7");a.classList.add("btn");a.innerText="7";keys.appendChild(a)
+var a=document.createElement("BUTTON");a.setAttribute("value","8");a.classList.add("btn");a.innerText="8";keys.appendChild(a)
+var a=document.createElement("BUTTON");a.setAttribute("value","9");a.classList.add("btn");a.innerText="9";keys.appendChild(a)
+var a=document.createElement("BUTTON");a.setAttribute("value","+");a.classList.add("btn");a.innerText="+";keys.appendChild(a)
+var a=document.createElement("BUTTON");a.setAttribute("value","4");a.classList.add("btn");a.innerText="4";keys.appendChild(a)
+var a=document.createElement("BUTTON");a.setAttribute("value","5");a.classList.add("btn");a.innerText="5";keys.appendChild(a)
+var a=document.createElement("BUTTON");a.setAttribute("value","6");a.classList.add("btn");a.innerText="6";keys.appendChild(a)
+var a=document.createElement("BUTTON");a.setAttribute("value","-");a.classList.add("btn");a.innerText="-";keys.appendChild(a)
+var a=document.createElement("BUTTON");a.setAttribute("value","1");a.classList.add("btn");a.innerText="1";keys.appendChild(a)
+var a=document.createElement("BUTTON");a.setAttribute("value","2");a.classList.add("btn");a.innerText="2";keys.appendChild(a)
+var a=document.createElement("BUTTON");a.setAttribute("value","3");a.classList.add("btn");a.innerText="3";keys.appendChild(a)
+var a=document.createElement("BUTTON");a.setAttribute("value","*");a.classList.add("btn");a.innerText="*";keys.appendChild(a)
+var a=document.createElement("BUTTON");a.setAttribute("value","clear");a.classList.add("btn","btn-danger");a.innerText="AC";keys.appendChild(a)
+var a=document.createElement("BUTTON");a.setAttribute("value","0");a.classList.add("btn");a.innerText="0";keys.appendChild(a)
+var a=document.createElement("BUTTON");a.setAttribute("value","=");a.classList.add("btn");a.innerText="=";keys.appendChild(a)
+var a=document.createElement("BUTTON");a.setAttribute("value","/");a.classList.add("btn");a.innerText="/";keys.appendChild(a)
+
+var main=document.createElement("DIV");
+main.classList.add("calculator-main")
+var input=document.createElement("INPUT");
+input.classList.add("calculator-screen")
+input.setAttribute("type","text")
+input.setAttribute("value","")
+input.setAttribute("disabled","")
+main.appendChild(input)
+main.appendChild(keys)
+document.body.appendChild(main)
+
+
+
+
+
+//using array to evaluate postfix
+var stack=[];
+
+//creating function array of operations
+var operations =[];
+operations["+"]=(a,b)=>a+b
+operations["-"]=(a,b)=>a-b
+operations["*"]=(a,b)=>a*b
+operations["/"]=(a,b)=>a/b
+operations["%"]=(a,b)=>a%b
+
+//adding eventlisteners to all buttons
+for(var i=0;i<document.getElementsByClassName("btn").length;i++)
+{
+    document.getElementsByClassName("btn")[i].addEventListener("click",operation)
+
+}
+
+//adding eventlisteners to all keypresses
+document.addEventListener('keydown', operation)
+
+
+
+//Keep on adding numbers an doperations to stack until size==3 then perform operation
+function operation(event)
+{
+    
+    if(event.key!=undefined){event.target.value=event.key;}
+
+if(event.target.value=="clear"){stack=[];document.querySelector(".calculator-screen").value=""}
+
+   if(stack.length==0)
+   {
+        if(parseInt(event.target.value)==event.target.value)
+        {
+            document.querySelector(".calculator-screen").value=event.target.value;
+            stack[0]=event.target.value;return;
+
+        }
+
+        else{return;}
+   }
+
+   if(stack.length==1)
+   {
+    if(parseInt(event.target.value)==event.target.value)
+        {
+            document.querySelector(".calculator-screen").value=document.querySelector(".calculator-screen").value+event.target.value
+            stack[0]=document.querySelector(".calculator-screen").value;
+
+        }
+        else{stack[1]=event.target.value;}
+        return;
+   }
+
+   if(stack.length==2)
+   {
+    if(parseInt(event.target.value)==event.target.value)
+        {
+            document.querySelector(".calculator-screen").value=event.target.value
+            stack[2]=event.target.value;return;
+
+        }
+        else{stack[1]=event.target.value;return;
+        
+        
+        }
+        
+   }
+   if(stack.length==3)
+   {
+
+    if(parseInt(event.target.value)==event.target.value)
+        {
+            document.querySelector(".calculator-screen").value=document.querySelector(".calculator-screen").value+event.target.value
+            stack[2]=document.querySelector(".calculator-screen").value;return;
+
+        }
+        else{stack[0]=operations[stack[1]](parseFloat(stack[0]),parseFloat(stack[2]));
+            document.querySelector(".calculator-screen").value=stack[0];
+            stack.pop();stack.pop();
+            if(event.target.value!="="){stack[1]=event.target.value;}
+        }
+        return;
+
+   }
+
+
+  
+    }
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
