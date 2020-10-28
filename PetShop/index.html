@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div id="newPetSuccess" class="alert alert-success d-none" role="alert">
+        New Pet Succesfully Added!
+      </div>
+
+      <div id="newEnqSuccess" class="alert alert-success d-none" role="alert">
+        Enquiry Added to queue!
+      </div>
+
+      <div id="noResultEnquiry" class="alert alert-danger d-none" role="alert">
+        No results found for selected enquiry!
+      </div>
+
+
+
+    <div class="container">
+        <div class="row justify-content-md-center text-center">
+            <div class="col col-lg-6 col-md-8 col-sm-12 text-center">
+                <div class="form-group">
+                  
+                    <button type="button" id="addPetToggle" class="btn btn-primary btn-block  bl-4  d-block">Add Pet</button>
+                <form id="addPetForm" class="d-none" onSubmit="return false;" action="">
+                  <input type="text" name="petName" id="petName" class="form-control input-lg text-center d-block" placeholder="Pet Name" aria-describedby="Pet Name" required>
+                  <div class="form-group  input-lg text-center d-block">
+                    
+                    <select class="form-control input-lg text-center " name="petType" id="petType" required>
+                        <option hidden disabled selected>Pet Type</option>
+                      <option val="Dog">Dog</option>
+                      <option val="Cat">Cat</option>
+                      <option  val="Bird">Bird</option>
+                      <option  val="Fish">Fish</option>
+                    </select>
+                      <select class="form-control input-lg text-center " name="petColor" id="petColor" required>
+                        <option hidden disabled selected>Pet Color</option>
+                      <option val="Black">Black</option>
+                      <option val="White">White</option>
+                      <option  val="Brown">Brown</option>
+                      <option  val="Golden">Golden</option>
+                      <option  val="Red">Red</option>
+                      <option  val="Grey">Grey</option>
+
+
+
+                    </select>
+                    <input type="number" name="petAge" id="petAge" class="form-control input-lg text-center d-block" placeholder="Age (in yrs)"  min="0" max="30" required>
+                    <button name="submitNewPet" id="submitNewPet" class="btn btn-primary" type="submit">Save </button>
+                  </div>
+                </form>
+                </div>
+
+
+
+                <div class="form-group">
+                  
+                    <button type="button" id="addEnqToggle" class="btn btn-primary btn-block  bl-4  d-block">Add Enquiry</button>
+                <form id="addEnquiryForm" class="d-none" onSubmit="return false;" action="">
+                  
+                  <div class="form-group  input-lg text-center d-block">
+                    
+                    <select class="form-control input-lg text-center " name="enqPetTypeList" id="enqPetTypeList"multiple required>
+                        
+                        <option val="Dog">Dog</option>
+                        <option val="Cat">Cat</option>
+                        <option  val="Bird">Bird</option>
+                        <option  val="Fish">Fish</option>
+                      
+                    </select>
+                      <select class="form-control input-lg text-center " name="enqPetColorList" id="enqPetColorList"multiple required>
+                        
+                      <option val="Black">Black</option>
+                      <option val="White">White</option>
+                      <option  val="Brown">Brown</option>
+                      <option  val="Golden">Golden</option>
+                      <option  val="Red">Red</option>
+                      <option  val="Grey">Grey</option>
+
+
+
+                    </select>
+                    <div>
+                        <input type="number" name="enqPetAgeMin" id="enqPetAgeMin" class=" input-lg text-center " placeholder="Age min" min="0" max="30" required>
+                        <input type="number" name="enqPetAgeMax" id="enqPetAgeMax" class=" input-lg text-center " placeholder="Age max" min="0" max="30" required>
+                    </div>
+                   
+                    <button name="submitNewPet" id="submitNewEnquiry" class="btn btn-primary" type="submit">Save </button>
+                  </div>
+                </form>
+                </div>
+
+
+
+                <ul id="enquiryList" class="list-group">
+                    <li id="enqListHeading" class="list-group-item active d-none">Current Enquiries</li>
+             
+                  </ul>
+
+                  <button id="executeInquiry" type="button" class="  btn btn-primary btn-block  bl-4 d-block d-none">Enquire Selected Criteria</button>
+
+
+                  <div id="enquiryResults">
+
+                  </div>
+
+ 
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="./index.js"></script>
+
+ </body>
+</html>
