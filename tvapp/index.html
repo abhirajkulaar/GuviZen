@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+
+<style>
+.tv-container{
+  position: relative;
+}
+
+.tv-frame{
+  width:100%
+}
+.tv-video-container{
+  position: absolute;
+    width: 82%;
+    
+    top: 9%;
+    left: 9%;
+}
+
+
+.progress{
+  display: flex;
+    position: absolute;
+    bottom: 3%;
+    height: 1rem;
+    width: 100%;
+    overflow: hidden;
+    font-size: .75rem;
+    background-color: #e9ecef;
+    border-radius: .25rem;
+}
+
+.pause-icon{
+  position: absolute;
+    top: 28%;
+    left: 43%;
+    width: 16%;
+}
+.channel-name{
+
+  position: absolute;
+    top: 0px;
+    font-size: 4vw;
+}
+.remote{
+  max-width: 30vw;
+}
+
+</style>
+
+
+  <body class="bg-secondary">
+      
+
+
+
+
+    <div class="container-fluid">
+
+     
+
+      <div class="row">
+
+        
+
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-10">
+
+
+          <div class="tv-container">
+            <img id="tvFrameImg" src="./images/samsungTV.jpg" alt="" srcset="" class="tv-frame">
+
+            <div class="tv-video-container">
+
+              <video id="myTV" style="width:100%" class="tv-video" >
+       
+  
+              </video>
+
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                  
+                </div>
+              </div>
+
+              <h1 class="channel-name" id="channelName" class="display-3">Star Sports</h1>
+
+
+            </div>
+         
+  
+  
+            <img src="./images/play.png" id="pauseIcon" class="pause-icon" alt="" srcset="">
+  
+  
+         
+
+          </div>
+
+
+        </div>
+
+       
+
+
+
+
+        <div class="col col-sm-12 col-md-12 col-lg-2">
+
+          <div class="row align-items-center justify-content-center">
+            <div class="col col-lg-12">
+            <img src="./images/remote.png" class="img-responsive img-fluid  remote" usemap="#image-map" >
+
+            <map name="image-map">
+                <area id="togglePause" alt="pause" href="javascript:void(0);"  title="pause"  coords="150,219,27" shape="circle">
+                <area id="increaseVolume" alt="volInc" title="volInc"  coords="150,293,25" shape="circle">
+                <area id="decreaseVolume" alt="volDec" title="volDec"  coords="150,372,25" shape="circle">
+                <area id="mute" alt="mute" title="mute" coords="151,447,25" shape="circle">
+                <area id="nextChannel" alt="nextChannel" title="nextChannel"  coords="228,221,27" shape="circle">
+                <area id="prevChannel" alt="prevChannel" title="prevChannel" coords="73,220,27" shape="circle">
+                <area id="home" alt="home" title="home"  coords="150,144,26" shape="circle">
+                <area id="toggleState" alt="power" title="power"  coords="74,68,17" shape="circle">
+            </map>
+
+
+          
+
+
+
+         
+
+          <div class="form-group">
+            
+            <select id="tvType" class="form-control" name="" id="">
+              <option value="Samsung">Samsung</option>
+              <option value="LG">LG</option>
+              <option value="Sony">Sony</option>
+            </select>
+          </div>
+
+        </div>
+
+        </div>
+
+      </div>
+
+
+  
+
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="./public/bundle.js"></script>
+ 
+
+  </body>
+</html>
