@@ -8,6 +8,14 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<style>
+    .age{
+        width:40%
+    }
+</style>
+
   </head>
   <body>
 
@@ -68,7 +76,7 @@
                 <form id="addEnquiryForm" class="d-none" onSubmit="return false;" action="">
                   
                   <div class="form-group  input-lg text-center d-block">
-                    
+                    <label for="enqPetTypeList" class="form-group">Select Type(Multiple with ctrl)</label>
                     <select class="form-control input-lg text-center " name="enqPetTypeList" id="enqPetTypeList"multiple required>
                         
                         <option val="Dog">Dog</option>
@@ -77,6 +85,7 @@
                         <option  val="Fish">Fish</option>
                       
                     </select>
+                    <label for="enqPetColorList" class="form-group">Select Color(Multiple with ctrl)</label>
                       <select class="form-control input-lg text-center " name="enqPetColorList" id="enqPetColorList"multiple required>
                         
                       <option val="Black">Black</option>
@@ -90,8 +99,8 @@
 
                     </select>
                     <div>
-                        <input type="number" name="enqPetAgeMin" id="enqPetAgeMin" class=" input-lg text-center " placeholder="Age min" min="0" max="30" required>
-                        <input type="number" name="enqPetAgeMax" id="enqPetAgeMax" class=" input-lg text-center " placeholder="Age max" min="0" max="30" required>
+                        <input type="number" name="enqPetAgeMin" id="enqPetAgeMin" class=" input-lg text-center age" placeholder="Age min" min="0" max="30" required>
+                        <input type="number" name="enqPetAgeMax" id="enqPetAgeMax" class=" input-lg text-center age" placeholder="Age max" min="0" max="30" required>
                     </div>
                    
                     <button name="submitNewPet" id="submitNewEnquiry" class="btn btn-primary" type="submit">Save </button>

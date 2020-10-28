@@ -1,9 +1,14 @@
+
+//create PetObject interface for available pets
+
 interface petObject  {
     petName:string;
     petType:PetType;
     petColor:PetColor;
     petAge:number;
 }
+
+// Class for objects of available pets with constructor accepting interface
 
 class Pet{
 
@@ -25,6 +30,8 @@ class Pet{
 }
 
 
+//petEnquiryObject interface
+
 interface petEnquiryObject{
 
     petType:Array<PetType>;
@@ -34,7 +41,7 @@ interface petEnquiryObject{
 
 }
 
-
+//Class for objects of enquiry of pets with constructor accepting interface
 class PetEnquiry{
 
     petType:Array<PetType>;
@@ -54,6 +61,8 @@ constructor(obj:petEnquiryObject)
 
 }
 
+//PetType is Enum
+
 enum PetType{
     Dog="Dog",
     Cat="Cat",
@@ -61,6 +70,8 @@ enum PetType{
     Fish="Fish"
 
 }
+
+//PetColor is Enum
 
 enum PetColor{
 
@@ -73,11 +84,13 @@ enum PetColor{
 
 }
 
-
+//Initialize Array of Available Pets
 let petAvailable:Array<Pet>=[]
+
+//Initialize Array of Enquiry Pets
 let petEnquiry:Array<PetEnquiry>=[]
 
-
+//Function to check if enum present in array of enums
 function arrayMatch(ar:Array<any>,ob:any)
 {
     for(let i=0;i<ar.length;i++)
@@ -90,6 +103,7 @@ function arrayMatch(ar:Array<any>,ob:any)
     return false;
 }
 
+//This function accepts all available pets and an array of enquiry objects -> it returns all available pets which match any enquiry
 function matchEnquiry(availablePets:Array<petObject>,enquiredPets:Array<petEnquiryObject>):Array<petObject>{
 
 let to_return:Array<petObject>=[];
@@ -104,17 +118,12 @@ return to_return;
 
 
 
-let newPet = new Pet({petName:"Puppy",petType:PetType.Dog,petColor:PetColor.Black,petAge:8})
-
-
-let as = "Dog";
-
-newPet = new Pet({petName:"Puppy",petType:PetType[as],petColor:PetType[as],petAge:8});
 
 
 
+//Create New Pet function -> creates new pet object and pushes to global availsble pets array
 
-(<HTMLFontElement>document.querySelector("#addPetForm")).addEventListener("submit",()=>{
+(<HTMLFormElement>document.querySelector("#addPetForm")).addEventListener("submit",()=>{
     
 
     
@@ -129,14 +138,21 @@ newPet = new Pet({petName:"Puppy",petType:PetType[as],petColor:PetType[as],petAg
     )
 
         petAvailable.push(toAdd);
+        //Show success message
         document.querySelector("#newPetSuccess").classList.remove("d-none")
-        setTimeout(()=>document.querySelector("#newPetSuccess").classList.add("d-none"),2000)
-
+        setTimeout(()=>document.querySelector("#newPetSuccess").classList.add("d-none"),2000);
+        //Reset Form
+        (<HTMLFormElement>document.querySelector("#addPetForm")).reset();
 
 });
 
+
+//Create New Enquiry function -> creates new enquiry object and pushes to global enquiry for pets array
+
+
 (<HTMLButtonElement>document.querySelector("#addEnquiryForm")).addEventListener("submit",()=>{
 
+    //Collects all selected options for color of pets into selectedColors array
 
     let selectedColors:Array<PetColor>=[];
 
@@ -147,6 +163,7 @@ newPet = new Pet({petName:"Puppy",petType:PetType[as],petColor:PetType[as],petAg
         selectedColors.push(PetColor[selectedColorsHTMLCollection[i].value])
     }
 
+    //Collects all selected options for type of pets into selectedTypes array
 
     let selectedTypes:Array<PetType>=[];
 
@@ -157,39 +174,47 @@ newPet = new Pet({petName:"Puppy",petType:PetType[as],petColor:PetType[as],petAg
         selectedTypes.push(PetType[selectedTypesHTMLCollection[i].value])
     }
 
-let toAdd= new PetEnquiry(
-{
+    //Creates PetEnquiry object
+
+    let toAdd= new PetEnquiry(
+    {
     petType:selectedTypes,
     petColor:selectedColors,
     petAgeMin:parseInt((<HTMLInputElement>document.querySelector("#enqPetAgeMin")).value),
     petAgeMax:parseInt((<HTMLInputElement>document.querySelector("#enqPetAgeMax")).value)
-}
-)
+    }
+    )
 
-petEnquiry.push(toAdd);
-document.querySelector("#newEnqSuccess").classList.remove("d-none")
-setTimeout(()=>document.querySelector("#newEnqSuccess").classList.add("d-none"),2000)
+    //Push object to main enquiry array
+    petEnquiry.push(toAdd);
+
+    //Show success message
+    document.querySelector("#newEnqSuccess").classList.remove("d-none")
+    setTimeout(()=>document.querySelector("#newEnqSuccess").classList.add("d-none"),2000)
 
 
+    //Show inquiry in List
+    let elem=document.createElement("li");
+    elem.classList.add("list-group-item");
 
-let elem=document.createElement("li");
-elem.classList.add("list-group-item");
+    elem.innerText=`A ${ toAdd.petColor.join("/")} ${ toAdd.petType.join("/")} between age ${toAdd.petAgeMin} and ${toAdd.petAgeMax}`
+    document.querySelector("#enquiryList").appendChild(elem);
+    document.querySelector("#enqListHeading").classList.remove("d-none");
+    document.querySelector("#executeInquiry").classList.remove("d-none");
 
-elem.innerText=`A ${ toAdd.petColor.join("/")} ${ toAdd.petType.join("/")} between age ${toAdd.petAgeMin} and ${toAdd.petAgeMax}`
-document.querySelector("#enquiryList").appendChild(elem);
-document.querySelector("#enqListHeading").classList.remove("d-none");
-document.querySelector("#executeInquiry").classList.remove("d-none");
-
+    (<HTMLFormElement>document.querySelector("#addEnquiryForm")).reset();
 
 });
 
-(<HTMLButtonElement>document.querySelector("#addPetToggle")).addEventListener("click",()=>(<HTMLFontElement>document.querySelector("#addPetForm")).classList.toggle("d-none"));
-(<HTMLButtonElement>document.querySelector("#addEnqToggle")).addEventListener("click",()=>(<HTMLFontElement>document.querySelector("#addEnquiryForm")).classList.toggle("d-none"));
+//EventListener for Add/Create Available Pet Button to expand menu
+(<HTMLButtonElement>document.querySelector("#addPetToggle")).addEventListener("click",()=>(<HTMLFormElement>document.querySelector("#addPetForm")).classList.toggle("d-none"));
+//EventListener for Add/Create Enquiry Button to expand menu
+(<HTMLButtonElement>document.querySelector("#addEnqToggle")).addEventListener("click",()=>(<HTMLFormElement>document.querySelector("#addEnquiryForm")).classList.toggle("d-none"));
 (<HTMLButtonElement>document.querySelector("#executeInquiry")).addEventListener("click",()=>{
 
-
+////EventListener for producing Query Results
 (<HTMLElement>document.querySelector("#enquiryResults")).innerHTML="";
-
+    //Get final output from function
  let result = matchEnquiry(petAvailable,petEnquiry);
  if(result.length==0){document.querySelector("#noResultEnquiry").classList.remove("d-none")
  setTimeout(()=>document.querySelector("#noResultEnquiry").classList.add("d-none"),2000)}
@@ -197,11 +222,14 @@ document.querySelector("#executeInquiry").classList.remove("d-none");
  for(let i=0;i<result.length;i++)
  {
     if(!count[result[i].petType]){count[result[i].petType]=0;}
+    //set count by Tupe
     count[result[i].petType]++;
+    //Create List for Type
     if(!<HTMLButtonElement>document.querySelector(`#${result[i].petType}List`)){let elem=document.createElement("ul");elem.classList.add("list-group");elem.setAttribute("id",`${result[i].petType}List`);<HTMLElement>document.querySelector("#enquiryResults").appendChild(elem);let elem2=document.createElement("li");elem2.classList.add("list-group-item","list-group-item-info");elem2.setAttribute("id",`${result[i].petType}ListHeading`);elem.appendChild(elem2);}
 
-    
+    //Add Result
     let elem=document.createElement("li");elem.classList.add("list-group-item");elem.innerText=`Name: ${result[i].petName}  Type: ${result[i].petType}  Color: ${result[i].petColor}  Age: ${result[i].petAge}`;
+    //Set Type Heading
     (<HTMLUListElement>document.querySelector(`#${result[i].petType}ListHeading`)).innerText=`${result[i].petType} - ${count[result[i].petType]}`;
     <HTMLElement>document.querySelector(`#${result[i].petType}List`).appendChild(elem);
 
